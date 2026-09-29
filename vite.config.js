@@ -3,7 +3,8 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/",
+  // Project site served from https://vadla-hemanth.github.io/portfolio/
+  base: "/portfolio/",
   build: {
     outDir: "dist",
     sourcemap: false,

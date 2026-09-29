@@ -82,25 +82,30 @@ export default function Hero() {
         </div>
         <motion.aside
           {...(reduce ? {} : { initial: { opacity: 0, scale: 1.04 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 0.7, ease: EASE_PREMIUM, delay: 0.5 } })}
-          aria-label="Profile portrait placeholder"
-          className="card relative mx-auto w-full max-w-[420px] overflow-hidden p-0"
+          aria-label="Portrait of Vadla Hemanth"
+          className="card group/img relative mx-auto w-full max-w-[420px] overflow-hidden p-0"
         >
-          <div className="flex aspect-[4/5] flex-col items-center justify-center gap-4 bg-[var(--surface-2)] p-8 text-center">
-            <div className="font-display text-6xl" aria-hidden="true">VH</div>
-            <div className="hero-grid-bg absolute inset-0" aria-hidden="true" />
-            <p className="relative font-mono text-xs uppercase tracking-[0.14em] text-faint">fig. 01 — portrait</p>
-            <p className="relative max-w-[32ch] text-sm leading-relaxed text-muted" role="img" aria-label="Profile photo placeholder. No photo provided yet.">
-              Photo placeholder — replace with <code className="font-mono text-[13px]">/images/vadla.jpg</code> (1:1, min 960px).
-            </p>
-            <div className="relative flex flex-wrap justify-center gap-2">
+          <div className="relative aspect-[4/5] overflow-hidden bg-[var(--surface-2)]">
+            <div className="absolute inset-0 flex items-center justify-center font-display text-6xl" aria-hidden="true">VH</div>
+            <img
+              src={`${import.meta.env.BASE_URL}images/vadla.jpg`}
+              alt="Portrait of Vadla Hemanth"
+              width={413}
+              height={500}
+              loading="eager"
+              fetchPriority="high"
+              onError={(e) => { e.currentTarget.style.display = "none"; }}
+              className="absolute inset-0 h-full w-full object-cover object-[center_20%] transition-transform duration-700 group-hover/img:scale-[1.04]"
+            />
+            <div className="hero-grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
+          </div>
+          <div className="border-t border-[var(--line)] px-5 py-4">
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">fig. 01 — portrait · hyderabad</p>
+            <div className="mt-3 flex flex-wrap gap-2">
               {["Python", "FastAPI", "Cloudflare"].map((t) => (
                 <span key={t} className="chip">{t}</span>
               ))}
             </div>
-          </div>
-          <div className="flex items-center justify-between border-t border-[var(--line)] px-5 py-3 font-mono text-[11px] text-faint">
-            <span>// hyderabad / 17.3850° N</span>
-            <span>─ c0ffee ─</span>
           </div>
         </motion.aside>
       </div>

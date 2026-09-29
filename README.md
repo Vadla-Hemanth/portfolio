@@ -18,12 +18,15 @@ npm run build    # dist/
 npm run preview  # verify prod locally
 ```
 
-## Deploy to Vercel
+## Deploy to GitHub Pages (live)
 
-1. Push `portfolio/` as its own GitHub repo (don't mix with hackathon files).
-2. Vercel → Add New Project → Import → Framework Preset: **Vite**.
-3. Build command: `npm run build` · Output: `dist` · No env vars needed.
-4. Update `canonical` URL in `index.html` to your domain.
+Hosting: **GitHub Pages** via Actions (`.github/workflows/deploy.yml`).
+
+- Every push to `main` builds (`npm ci` + `npm run build`) and deploys `dist/`.
+- Live URL: **https://vadla-hemanth.github.io/portfolio/**
+- First-time setup (done once): repo Settings → Pages → Source: **GitHub Actions**.
+  (Or via API: `POST /repos/Vadla-Hemanth/portfolio/pages` with `{"build_type":"workflow"}`.)
+- No secrets or env vars required. To use a custom domain later, add a `CNAME` file and point DNS at GitHub Pages.
 
 ## Customize
 
